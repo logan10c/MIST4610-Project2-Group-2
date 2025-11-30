@@ -92,6 +92,87 @@ Table: seasonStats
 
 
 Queries:
+1. Management can identify veteran heavy teams and how they correlate with on-field success.
+CREATE VIEW Team_Offensive_Strength AS
+SELECT 
+    team.team_name,
+    SUM(player.salary) AS total_team_salary,
+    AVG(player.years_experience) AS average_years_experience,
+    seasonStats.win_percentage
+FROM team
+JOIN team_has_player 
+    ON team.team_name = team_has_player.team_name
+JOIN player 
+    ON team_has_player.player_id = player.player_id
+JOIN seasonStats 
+    ON team.team_name = seasonStats.team_name
+GROUP BY team.team_name;
+—-----------------------------------------------------------------------------------
+SELECT 
+    team_name,
+    total_team_salary,
+    average_years_experience,
+    win_percentage
+FROM Team_Offensive_Strength
+WHERE average_years_experience > 3
+ORDER BY win_percentage DESC;
+
+2. The Query helps Management track player movement across team using their Player ID
+
+DELIMITER $$
+
+CREATE PROCEDURE GetPlayerCareerHistory
+(
+    IN input_player_id INT
+)
+BEGIN
+    SELECT 
+        player.player_fname AS player_first_name,
+        player.player_lname AS player_last_name,
+        team_has_player.team_name,
+        team_has_player.start_date,
+        team_has_player.end_date
+    FROM team_has_player
+    JOIN player 
+        ON player.player_id = team_has_player.player_id
+    WHERE team_has_player.player_id = input_player_id
+    ORDER BY team_has_player.start_date;
+END $$
+
+DELIMITER ;
+—-----------------------------------------------------------------------------------------
+CALL GetPlayerCareerHistory(1);
+
+3. This procedure calculates total salary and years of experience for all players on a team. This allows managers to see their financial investment and roster maturity.
+
+DELIMITER $$
+
+CREATE PROCEDURE GetTeamPayrollAndExperience
+(
+    IN input_team_name VARCHAR(45)
+)
+BEGIN
+    SELECT 
+        team.team_name,
+        SUM(player.salary) AS total_team_salary,
+        AVG(player.years_experience) AS average_player_experience
+    FROM team
+    JOIN team_has_player 
+        ON team.team_name = team_has_player.team_name
+    JOIN player 
+        ON team_has_player.player_id = player.player_id
+    WHERE team.team_name = input_team_name
+    GROUP BY team.team_name;
+END $$
+
+DELIMITER ;
+—-----------------------------------------------------------------------------
+CALL GetTeamPayrollAndExperience('Kansas City Chiefs');
+
+
+
+
+
 
 
 Data Visualizations: 
