@@ -171,6 +171,29 @@ DELIMITER ;
 CALL GetTeamPayrollAndExperience('Kansas City Chiefs');
 
 
+4. Management has a weakness in their team in the Free Safety position and is looking to acquire new talent in the offseason. In order to get an idea of how much money this may cost, management would like to know the average salary of players in the free safety position. Management only has enough salary room for a safety making 10 million or less.
+
+CREATE VIEW free_safety_salary AS
+SELECT player_fname, player_lname, position_id, position_name, salary
+FROM player
+JOIN position USING (position_id)
+WHERE salary <= 10000000;
+
+SELECT * FROM free_safety_salary
+
+
+
+5. Management is realizing that their team’s poor performance is linked to their lack of ability on defense. They think the issue lies within the coaching department since they added new talented players yet seeing minimal improvement. To find a replacement coach, management wants to hire a defensive coordinator who coaches for a team with an above .500 win percentage.
+CREATE VIEW new_dc AS
+SELECT coach_fname, coach_lname, role, coach.team_name, win_percentage
+FROM coach
+JOIN team ON team.team_name = coach.team_name
+JOIN seasonStats ON team.team_name = seasonStats.team_name
+WHERE role = “Defensive Coordinator” and win_percentage > 0.500;
+
+SELECT * FROM new_dc;
+
+
 
 
 
