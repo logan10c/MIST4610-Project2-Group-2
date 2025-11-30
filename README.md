@@ -91,6 +91,18 @@ Table: seasonStats
 <img width="695" height="237" alt="image" src="https://github.com/user-attachments/assets/62e4bce9-494a-415e-8dff-bcb00a2b50b4" />
 
 
+Queries:
+
+
+Data Visualizations: 
+https://nmlrocheteau.github.io/nfl-dashboard/
+This link leads to an interactive tableau dashboard that contains three data visualizations to help better understand the data
+
+<img width="512" height="371" alt="image" src="https://github.com/user-attachments/assets/c963cad8-fe32-4f08-9d84-83112f6cd272" />
+
+<img width="473" height="374" alt="image" src="https://github.com/user-attachments/assets/54867289-3f61-4bc8-9cd4-75fb3b1672d6" />
+
+<img width="532" height="386" alt="image" src="https://github.com/user-attachments/assets/2d469abb-b9db-4599-956f-284128ba1d4c" />
 
 
 
