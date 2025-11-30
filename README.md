@@ -184,6 +184,7 @@ SELECT * FROM free_safety_salary
 
 
 5. Management is realizing that their team’s poor performance is linked to their lack of ability on defense. They think the issue lies within the coaching department since they added new talented players yet seeing minimal improvement. To find a replacement coach, management wants to hire a defensive coordinator who coaches for a team with an above .500 win percentage.
+
 CREATE VIEW new_dc AS
 SELECT coach_fname, coach_lname, role, coach.team_name, win_percentage
 FROM coach
