@@ -16,5 +16,6 @@ The project focuses on:
 
 - Writing and executing SQL queries to efficiently retrieve meaningful insights from the database, such as team performance metrics, player statistics, and game reporting details.
 - Creating Data Visualizations to effectively and easily convey the information contained within our database.
+
 By the end of the project, we will have a fully functioning database system that provides valuable visibility into the dynamics and analytics of the 2024 NFL season.
 Note that we could not find complete accurate data for Broadcasting Crews and Player Start +  End Dates.
