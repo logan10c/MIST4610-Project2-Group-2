@@ -22,6 +22,7 @@ Note that we could not find complete accurate data for Broadcasting Crews and Pl
 
 Data Model:
 
+<img width="310" height="398" alt="image" src="https://github.com/user-attachments/assets/b863d552-f240-4c85-860d-719776ff9ab6" />
 
 
 Model Explanation:
