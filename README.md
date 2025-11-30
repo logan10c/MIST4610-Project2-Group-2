@@ -94,108 +94,32 @@ Table: seasonStats
 
 Queries:
 1. Management can identify veteran heavy teams and how they correlate with on-field success.
-CREATE VIEW Team_Offensive_Strength AS
-SELECT 
-    team.team_name,
-    SUM(player.salary) AS total_team_salary,
-    AVG(player.years_experience) AS average_years_experience,
-    seasonStats.win_percentage
-FROM team
-JOIN team_has_player 
-    ON team.team_name = team_has_player.team_name
-JOIN player 
-    ON team_has_player.player_id = player.player_id
-JOIN seasonStats 
-    ON team.team_name = seasonStats.team_name
-GROUP BY team.team_name;
-—-----------------------------------------------------------------------------------
-SELECT 
-    team_name,
-    total_team_salary,
-    average_years_experience,
-    win_percentage
-FROM Team_Offensive_Strength
-WHERE average_years_experience > 3
-ORDER BY win_percentage DESC;
+
+<img width="623" height="334" alt="image" src="https://github.com/user-attachments/assets/89c6900d-b111-4584-ad06-bc40e7cd0bd1" />
+
 
 2. The Query helps Management track player movement across team using their Player ID
 
-DELIMITER $$
 
-CREATE PROCEDURE GetPlayerCareerHistory
-(
-    IN input_player_id INT
-)
-BEGIN
-    SELECT 
-        player.player_fname AS player_first_name,
-        player.player_lname AS player_last_name,
-        team_has_player.team_name,
-        team_has_player.start_date,
-        team_has_player.end_date
-    FROM team_has_player
-    JOIN player 
-        ON player.player_id = team_has_player.player_id
-    WHERE team_has_player.player_id = input_player_id
-    ORDER BY team_has_player.start_date;
-END $$
+<img width="623" height="347" alt="image" src="https://github.com/user-attachments/assets/f237c607-d95c-4d47-9042-26ddfce06223" />
 
-DELIMITER ;
-—-----------------------------------------------------------------------------------------
-CALL GetPlayerCareerHistory(1);
 
 3. This procedure calculates total salary and years of experience for all players on a team. This allows managers to see their financial investment and roster maturity.
 
-DELIMITER $$
 
-CREATE PROCEDURE GetTeamPayrollAndExperience
-(
-    IN input_team_name VARCHAR(45)
-)
-BEGIN
-    SELECT 
-        team.team_name,
-        SUM(player.salary) AS total_team_salary,
-        AVG(player.years_experience) AS average_player_experience
-    FROM team
-    JOIN team_has_player 
-        ON team.team_name = team_has_player.team_name
-    JOIN player 
-        ON team_has_player.player_id = player.player_id
-    WHERE team.team_name = input_team_name
-    GROUP BY team.team_name;
-END $$
+<img width="627" height="343" alt="image" src="https://github.com/user-attachments/assets/acf2da2d-a42c-4a17-8fbb-5580a361370f" />
 
-DELIMITER ;
-—-----------------------------------------------------------------------------
-CALL GetTeamPayrollAndExperience('Kansas City Chiefs');
 
 
 4. Management has a weakness in their team in the Free Safety position and is looking to acquire new talent in the offseason. In order to get an idea of how much money this may cost, management would like to know the average salary of players in the free safety position. Management only has enough salary room for a safety making 10 million or less.
 
-CREATE VIEW free_safety_salary AS
-SELECT player_fname, player_lname, position_id, position_name, salary
-FROM player
-JOIN position USING (position_id)
-WHERE salary <= 10000000;
-
-SELECT * FROM free_safety_salary
+<img width="626" height="371" alt="image" src="https://github.com/user-attachments/assets/390d838e-0359-4ec4-9023-b08897f98baf" />
 
 
 
 5. Management is realizing that their team’s poor performance is linked to their lack of ability on defense. They think the issue lies within the coaching department since they added new talented players yet seeing minimal improvement. To find a replacement coach, management wants to hire a defensive coordinator who coaches for a team with an above .500 win percentage.
 
-CREATE VIEW new_dc AS
-SELECT coach_fname, coach_lname, role, coach.team_name, win_percentage
-FROM coach
-JOIN team ON team.team_name = coach.team_name
-JOIN seasonStats ON team.team_name = seasonStats.team_name
-WHERE role = “Defensive Coordinator” and win_percentage > 0.500;
-
-SELECT * FROM new_dc;
-
-
-
+<img width="629" height="355" alt="image" src="https://github.com/user-attachments/assets/bef3b82a-9a6c-4dde-a107-06b1f72ddb51" />
 
 
 
