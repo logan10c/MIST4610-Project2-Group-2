@@ -110,5 +110,7 @@ Visualization 2: The Average Salary per Position bar chart highlights how player
 
 <img width="532" height="386" alt="image" src="https://github.com/user-attachments/assets/2d469abb-b9db-4599-956f-284128ba1d4c" />
 
+Visualization 3: The Position Experience vs. Salary scatterplot visualizes the relationship between years of experience and player salary, with each point color-coded according to the player’s position. This makes it possible to compare trends both across and within positional groups, such as how veteran quarterbacks compare to veteran running backs. Because raw scatterplots can become crowded, a position filter allows the user to isolate one or more positions (e.g., only QB and C), making patterns significantly easier to read. This visualization is particularly useful for identifying whether salary increases consistently with experience or whether certain positions deviate from expected trends.This allows managers and talent evaluators to make informed decisions about player development, contract negotiations, and long-term roster planning.
+
 
 
