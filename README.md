@@ -81,5 +81,15 @@ Table: broadcaster
 
 <img width="600" height="224" alt="image" src="https://github.com/user-attachments/assets/4c13101a-1a8b-441f-b6dd-63c9a02f26f4" />
 
+Table: position
+
+<img width="654" height="180" alt="image" src="https://github.com/user-attachments/assets/8cd22d4f-b786-4edf-8df4-b85df33314b8" />
+
+Table: seasonStats
+
+<img width="695" height="237" alt="image" src="https://github.com/user-attachments/assets/62e4bce9-494a-415e-8dff-bcb00a2b50b4" />
+
+
+
 
 
