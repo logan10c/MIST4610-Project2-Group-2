@@ -100,7 +100,13 @@ This link leads to an interactive tableau dashboard that contains three data vis
 
 <img width="512" height="371" alt="image" src="https://github.com/user-attachments/assets/c963cad8-fe32-4f08-9d84-83112f6cd272" />
 
+Visualization 1: The Team Performance Highlight Table presents each NFL team’s wins, losses, and win percentage using a heat-mapped color scale. Lower values appear in darker red, while higher-performing teams appear in darker green, creating an immediate visual contrast that makes it easy to identify which teams excel and which are underperforming. Users can reorder the table by ascending or descending values, or alphabetically, allowing them to quickly scan across different performance perspectives. This visualization is particularly effective because it transforms simple statistics into an intuitive visual summary that is easy to interpret at a glance. This allows team analysts and coaches to quickly pinpoint performance gaps and identify where strategic improvements may be needed.
+
+
 <img width="473" height="374" alt="image" src="https://github.com/user-attachments/assets/54867289-3f61-4bc8-9cd4-75fb3b1672d6" />
+
+Visualization 2: The Average Salary per Position bar chart highlights how player compensation varies across different positions in the league. Positions are displayed along the x-axis, with the average salary for each represented by the height of its bar on the y-axis. The chart can be sorted in ascending or descending order, making it easy to identify which positions are compensated most and least. This visualization clearly communicates salary disparities and shows how positional value influences financial decisions. This helps front offices and financial analysts understand where the team’s salary cap is being allocated and evaluate whether compensation aligns with team strategy and market expectations.
+
 
 <img width="532" height="386" alt="image" src="https://github.com/user-attachments/assets/2d469abb-b9db-4599-956f-284128ba1d4c" />
 
